@@ -4,17 +4,18 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
 import Home from './pages/Home';
 import './index.css'
-import NotFound from './pages/NotFound';
 import AllProducts from './pages/AllProducts';
 import ProductDetail from './pages/ProductDetail';
 import NewProduct from './pages/NewProduct';
 import MyCart from './pages/MyCart';
 import NotFound from './pages/NotFound';
+import ProtectedRoute from './pages/ProtectedRoute';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+    errorElement: <NotFound />,
     children: [
       { index: true, path: '/', element: <Home /> },
       { path: '/products', element: <AllProducts /> },

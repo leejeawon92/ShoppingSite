@@ -14,11 +14,11 @@ const auth = getAuth();
 const provider = new GoogleAuthProvider();
 const database = getDatabase(app);
 
-export async function LogIn() {
+export async function login() {
   signInWithPopup(auth, provider).catch(console.error);
 }
 
-export async function LogOut() {
+export async function logout() {
   signOut(auth).catch(console.error);
 }
 
