@@ -40,3 +40,14 @@ async function adminUser(user) {
       return user;
     });
 }
+
+export async function addNewProduct(product, image) {
+  const id = uuid();
+  return set(ref(database, `products/${id}`), {
+    ...product,
+    id,
+    price: parseInt(product.price),
+    image,
+    options: product.options.split(','),
+  });
+}
