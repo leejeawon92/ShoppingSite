@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Button from '../components/ui/Button';
+import { addOrUpdateToCart } from '../api/firebase';
+import { useAuthContext } from '../context/AuthContext';
 
 export default function ProductDetail() {
-  const { state: { product: { image, title, description, category, price, options } } } = useLocation();    
+  const { state: { product: { id, image, title, description, category, price, options } } } = useLocation();    
   const [selected, setSelected] = useState(options && options[0]);
+  const { uid } = useAuthContext();
+
   const handleSelect = (e) => setSelected(e.target.value);
+
   const handleClick = (e) => {
+    const product = { id, image, title, price, option: selected, quantity: 1 };
+    addOrUpdateToCart(uid, product);
   };
 
   return (
