@@ -6,6 +6,7 @@ import PriceCard from '../components/PriceCard';
 import Button from '../components/ui/Button';
 import { BsFillPlusCircleFill } from 'react-icons/bs';
 import { FaEquals } from 'react-icons/fa';
+import CartItem from '../components/CartItem';
 
 const SHIPPING = 3000;
 
@@ -30,16 +31,7 @@ export default function MyCart() {
           <ul className='border-b border-gray-300 mb-8 p-4 px-8'>
             {products &&
               products.map((product) => (
-                <li className='flex justify-between my-2 items-center'>
-                  <img className='w-24 md:w-48 rounded-lg' src={product.image} alt={product.title} />
-                  <div className='flex-1 flex justify-between ml-4'>
-                    <div className='basis-3/5'>
-                      <p className='text-lg'>{product.title}</p>
-                      <p className='text-xl font-bold text-brand'>{product.option}</p>
-                      <p>₩{product.price}</p>
-                    </div>
-                  </div>
-                </li>
+                <CartItem key={product.id} product={product} uid={uid} />
               ))}
           </ul>
           <div className='flex justify-between items-center mb-6 px-2 md:px-8 lg:px-16'>
