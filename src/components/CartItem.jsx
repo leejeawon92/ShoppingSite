@@ -1,6 +1,7 @@
 import React from 'react';
 import { RiDeleteBin5Fill } from 'react-icons/ri';
 import { AiOutlinePlusSquare, AiOutlineMinusSquare } from 'react-icons/ai';
+import useCart from '../hooks/useCart';
 
 const ICON_CLASS = 'transition-all cursor-pointer hover:text-brand hover:scale-105 mx-1';
 
